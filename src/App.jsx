@@ -202,7 +202,7 @@ export default function App() {
         <p style={{ color: COLORS.muted }} className="text-lg leading-relaxed mb-8 max-w-xl mx-auto">
           Un webinaire gratuit et concret : à partir de plusieurs fichiers rangés dans divers dossiers,
           on consolide, on analyse une évolution clé (chiffre d'affaires, charges, ou effectifs/turnover)
-          et on en sort un vrai dashboard — en direct, du fichier brut au tableau de bord.
+          et on en sort un vrai dashboard.
         </p>
 
         <div className="flex flex-wrap justify-center gap-3 mb-8">
@@ -375,7 +375,7 @@ export default function App() {
       </section>
 
       <footer style={{ borderTop: `1px solid ${COLORS.border}`, padding: "40px 20px 40px", textAlign: "center" }} className="max-w-3xl mx-auto px-6">
-        <span style={{ color: COLORS.mutedDark, fontSize: "14px" }}>© 2026 Dimitri Takou — Webinaire gratuit Excel &amp; Power BI</span>
+        <span style={{ color: COLORS.mutedDark, fontSize: "14px" }}>© 2026 — Webinaire gratuit Excel &amp; Power BI</span>
       </footer>
     </div>
   );
