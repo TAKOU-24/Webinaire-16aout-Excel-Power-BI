@@ -5,31 +5,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription confirmée</title>
     <style>
-        body { background: #0A0D16; color: #F1F3F9; font-family: 'Inter', sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; padding: 20px; }
-        .container { text-align: center; max-width: 500px; }
-        .checkmark { width: 80px; height: 80px; margin: 0 auto 30px; background: #3DDC97; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #0A0D16; font-size: 50px; }
-        h1 { font-size: 28px; margin: 20px 0; }
-        p { font-size: 16px; color: #8B93AC; line-height: 1.6; margin: 15px 0; }
-        .buttons { display: flex; flex-direction: column; gap: 12px; margin-top: 30px; }
-        .button { padding: 12px 30px; border-radius: 8px; text-decoration: none; display: inline-block; font-weight: 600; font-size: 16px; transition: transform 0.2s; }
-        .button:hover { transform: scale(1.05); }
-        .primary { background: linear-gradient(135deg, #15803D 0%, #22C55E 100%); color: #0A0D16; }
-        .whatsapp { background: #25D366; color: white; }
+        body { 
+            background: #0A0D16; 
+            color: #F1F3F9; 
+            font-family: 'Inter', sans-serif; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            min-height: 100vh; 
+            margin: 0; 
+            padding: 40px 20px; 
+        }
+        .container { 
+            text-align: center; 
+            max-width: 600px; 
+        }
+        .checkmark { 
+            width: 100px; 
+            height: 100px; 
+            margin: 0 auto 40px; 
+            background: #3DDC97; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            color: #0A0D16; 
+            font-size: 60px; 
+            font-weight: bold;
+            box-shadow: 0 10px 30px -8px rgba(61, 220, 151, 0.4);
+        }
+        h1 { 
+            color: #F1F3F9; 
+            font-size: 32px; 
+            font-weight: 700; 
+            margin: 0 0 24px;
+            font-family: 'Sora', sans-serif;
+        }
+        p { 
+            color: #8B93AC; 
+            font-size: 16px; 
+            line-height: 1.6; 
+            margin: 0 0 40px; 
+        }
+        .whatsapp-button {
+            display: inline-block;
+            width: 100%;
+            max-width: 500px;
+            background: linear-gradient(135deg, #25D366 0%, #1DA851 100%);
+            border: none;
+            border-radius: 16px;
+            padding: 32px 24px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px -8px rgba(37, 211, 102, 0.5);
+        }
+        .whatsapp-button:hover {
+            transform: scale(1.02);
+        }
+        .button-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+        }
+        .whatsapp-logo {
+            width: 28px;
+            height: 28px;
+        }
+        .button-text {
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0;
+            font-family: 'Sora', sans-serif;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="checkmark">✓</div>
         <h1>Inscription confirmée !</h1>
-        <p>Merci pour votre inscription.</p>
         <p>Le lien Google Meet vous sera envoyé par e-mail avant l'événement.</p>
         
-        <div class="buttons">
-            <a href="https://chat.whatsapp.com/G5qrRv6lHz335EZplkksgj?s=cl&p=a&ilr=4" class="button whatsapp" target="_blank">
-                📲 Rejoindre le groupe WhatsApp
-            </a>
-            <a href="/" class="button primary">Retour à l'accueil</a>
-        </div>
+        <a href="https://chat.whatsapp.com/G5qrRv6lHz335EZplkksgj?s=cl&p=a&ilr=4" target="_blank" class="whatsapp-button">
+            <div class="button-content">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAbCAYAAAAdx42aAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAPYSURBVEhL7ZRbbJNlHMZ/O3Xt2rWspdvsts52dGSwEXBgpy4gBw0kIAS9cBpQExMuhl4YFfSKKBpRCV5ISFRiVPTCzOEFJAseALdlB62AjMYd3DpXdqDrt0MP25oevNj2pd83CN8wyI2/u+//PO/7fe/983ZSoUSHAPSZUX/mtS/s0OCJEgp71teEI+RqbHUadlUpljo9xgpdxQRGZahnzIAu4oQCA6zRH3aeqvtxONx+QyAJo0FQfKdvFMcbVckrDoAB0Tf1PrOsnQ1BgWjZH9jq08YLRRpDExODVOu9BD22gXDcOXicSjVJkcvLvqWQqzjPKpYLEBugJDPNV8lOlYhH0lj/Ny6TYyUtPlNgAGpwTevlbHTyMdmDKzObv+DYwqndymPEAoGmF38/t4gj6Or32RLXkVcstN+bLvIofd3/Fo7ko+WbdPLiu/BZ/3/Uxf8AYHy3ayJa8C38wkta7P+Mrzi9wqYa9tA1WmUi7cuMYpT6NcVhYgmojzdX8jFo2RF+ybADji/p4fhv/geHcD0URcPkTCh6v3oEtX82nvj3JJWYArYx78MwGetj4s1i5PeGDuKraMdia5F5KrNrA5r4KhqTGESECiKQrQGRgEwGlyiDWrZikA92vNrFpSLNZvhV2XB8BvQq+krihAb2gEAIsmR6ztLnQCYFbrMWRkifVbYdOaIWkx8ygKoEpJAyCW1OvtBZVsL6jk V/9ffNPflOS+OWORMAC5mQZJXVGAfPXsyvvDPkn9nYoaVhiKONTxLSd6zhFLxOkJDlPT8hFXx/sl3u7g7Mrt2tlWzKMowDpTCQBNPulh06Sp+MJZy0qDlWOdZ9h8/i32tn6MS+jlyeajHLxySvTOb31JdmjSDAoDlOkLWabLp26gZcHbb8jIou6RVzhQtpMECUZnJkXNOtd398QAl4Q+HjItx6jKThq9iJfwWOcZTvSco776VcoNVrkscmmsjybfnxRpTeywrCUaj7Gj8T28YT9n17+JTXcHOwDgm1uZXZsvlySsybHxUuk2dhU8SDg2w37XSTwhH8/ZNi74OYsJ0B0Ywq7NIytdBYA3LBCKRuQ2kVZ/F49fOMxFn5syfSG1pVvlFlDaggQJVje8hlmtpzTbwu9CL0IkiDlTT01xtXhIx2fCtPq7aPN30xMcBuB5+0ZeX/4E6amzV1mOogDesMCm84fEb4fuPqqWOnBPenHJXrZ5lmRo+WDNHjaYV8glCYoCuCcGqL/ejtPowGlahjPp5fOGBa6O9zM4LRBPJHBkW7BqTVizzKSn3L7DigLcTW4f8S7zf4B7HuAfcAF0m4Ftl9YAAAASUVORK5CYII=" alt="WhatsApp" class="whatsapp-logo">
+                <span class="button-text">Rejoindre le groupe WhatsApp dédié au webinaire</span>
+            </div>
+        </a>
     </div>
 </body>
 </html>
