@@ -164,7 +164,7 @@ export default function App() {
     try {
       await submitToGoogleForms(form);
       const redirectParams = new URLSearchParams({ prenom: form.prenom, email: form.email });
-      window.location.href = `/merci?${redirectParams.toString()}`;
+      window.location.href = `/merci-inscription.html?${redirectParams.toString()}`;
     } catch (err) {
       setSubmitError(true);
     } finally {
