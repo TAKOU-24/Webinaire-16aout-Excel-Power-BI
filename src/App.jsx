@@ -110,7 +110,7 @@ export default function App() {
   const update = (field) => (e) => setForm((f) => ({ ...f, [field]: e.target.value }));
 
   const GOOGLE_FORM_ACTION_URL =
-    "https://docs.google.com/forms/d/e/1FAIpQLSfsC9z2shOgE6jGL-oWy-RIHVxSC3gpjouaHWNJ4Rp6Pf_Xuw/formResponse";
+    "https://docs.google.com/forms/d/e/1FAIpQLSf2bTQKQpACfrbJtdeTXP_X-mNFDFGDpGMaV_VjizH6mPV_0Q/formResponse";
 
   const GOOGLE_FORM_ENTRIES = {
     prenom: "entry.1194009365",
@@ -195,7 +195,6 @@ export default function App() {
         html { scroll-behavior: smooth; }
       `}</style>
 
-      {/* HERO */}
       <section className="max-w-3xl mx-auto px-6 pt-16 md:pt-24 pb-10 text-center">
         <CellTag>ÉVÉNEMENT GRATUIT — EN DIRECT</CellTag>
         <h1
@@ -221,7 +220,7 @@ export default function App() {
             <Calendar size={15} color={COLORS.cyan} /> 16 août 2026
           </span>
           <span className="flex items-center gap-2 text-sm px-4 py-2 rounded-full" style={{ color: COLORS.text, background: COLORS.surface2, border: `1px solid ${COLORS.border}` }}>
-            <Clock size={15} color={COLORS.cyan} /> 19h00 — 45 min
+            <Clock size={15} color={COLORS.cyan} /> 20h00 — 45 min
           </span>
           <span className="flex items-center gap-2 text-sm px-4 py-2 rounded-full" style={{ color: COLORS.text, background: COLORS.surface2, border: `1px solid ${COLORS.border}` }}>
             <Video size={15} color={COLORS.cyan} /> En ligne, via Google Meet
@@ -233,7 +232,6 @@ export default function App() {
         </PrimaryButton>
       </section>
 
-      {/* GRATUIT BANNER */}
       <section className="max-w-3xl mx-auto px-6 pb-12">
         <div
           className="rounded-2xl p-5 flex items-center gap-4"
@@ -246,7 +244,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* CAS PRATIQUE */}
       <section className="max-w-3xl mx-auto px-6 py-12">
         <CellTag>LE CAS DU JOUR</CellTag>
         <h2 style={{ ...fontDisplay, color: COLORS.text }} className="text-2xl md:text-3xl font-semibold mb-8">
@@ -270,7 +267,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* CE QUE VOUS SAUREZ FAIRE */}
       <section className="max-w-3xl mx-auto px-6 py-12">
         <CellTag>AU PROGRAMME</CellTag>
         <h2 style={{ ...fontDisplay, color: COLORS.text }} className="text-2xl md:text-3xl font-semibold mb-8">
@@ -286,7 +282,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* FORMATEUR */}
       <section className="max-w-3xl mx-auto px-6 py-12">
         <div
           className="rounded-3xl p-8 flex flex-col sm:flex-row gap-6 items-start"
@@ -328,7 +323,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* FORMULAIRE */}
       <section id="inscription" className="max-w-2xl mx-auto px-6 py-12">
         <div className="text-center mb-8">
           <CellTag>RÉSERVATION</CellTag>
@@ -393,7 +387,6 @@ export default function App() {
           </div>
       </section>
 
-      {/* FAQ */}
       <section className="max-w-3xl mx-auto px-6 py-12">
         <CellTag>QUESTIONS FRÉQUENTES</CellTag>
         <h2 style={{ ...fontDisplay, color: COLORS.text }} className="text-2xl md:text-3xl font-semibold mb-8">
@@ -403,7 +396,7 @@ export default function App() {
           {[
             { q: "Faut-il un niveau particulier sur Excel ?", a: "Non, le webinaire est conçu pour être suivi par des profils débutants à intermédiaires en contrôle de gestion, comptabilité, RH, logistique ou finance." },
             { q: "Dois-je installer un logiciel ?", a: "Non, la session se déroule via un lien Google Meet classique — cliquez et vous êtes connecté, sans compte Google ni installation." },
-            { q: "Que se passe-t-il si je ne suis pas disponible le 16 août à 19h ?", a: "Inscrivez-vous quand même : le replay vous sera envoyé automatiquement par e-mail après l'événement." },
+            { q: "Que se passe-t-il si je ne suis pas disponible le 16 août à 20h ?", a: "Inscrivez-vous quand même : le replay vous sera envoyé automatiquement par e-mail après l'événement." },
             { q: "Mes données seront-elles utilisées ailleurs ?", a: "Non, vous recevrez uniquement les e-mails liés à ce webinaire (confirmation, rappel, replay, offre de suite)." },
           ].map((f, i) => (
             <div key={i} className="rounded-xl p-5" style={{ background: COLORS.surface, border: `1px solid ${COLORS.border}` }}>
