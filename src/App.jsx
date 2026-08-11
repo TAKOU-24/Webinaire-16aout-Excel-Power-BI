@@ -8,11 +8,8 @@ import {
   Send,
   Sparkles,
   Linkedin,
-  Sigma,
-  Target,
 } from "lucide-react";
 
-/* Same visual identity as the training landing page: black background, green accents */
 const COLORS = {
   bg: "#0A0D16",
   surface: "#10141F",
@@ -109,8 +106,7 @@ export default function App() {
 
   const update = (field) => (e) => setForm((f) => ({ ...f, [field]: e.target.value }));
 
-  const GOOGLE_FORM_ACTION_URL =
-    "https://docs.google.com/forms/d/e/1FAIpQLSf2bTQKQpACfrbJtdeTXP_X-mNFDFGDpGMaV_VjizH6mPV_0Q/formResponse";
+  const GOOGLE_FORM_ACTION_URL = "https://docs.google.com/forms/d/e/1FAIpQLSf2bTQKQpACfrbJtdeTXP_X-mNFDFGDpGMaV_VjizH6mPV_0Q/formResponse";
 
   const GOOGLE_FORM_ENTRIES = {
     prenom: "entry.1194009365",
@@ -167,7 +163,6 @@ export default function App() {
     setSubmitError(false);
     try {
       await submitToGoogleForms(form);
-
       const redirectParams = new URLSearchParams({ prenom: form.prenom, email: form.email });
       window.location.href = `/merci?${redirectParams.toString()}`;
     } catch (err) {
@@ -197,14 +192,9 @@ export default function App() {
 
       <section className="max-w-3xl mx-auto px-6 pt-16 md:pt-24 pb-10 text-center">
         <CellTag>ÉVÉNEMENT GRATUIT — EN DIRECT</CellTag>
-        <h1
-          style={{ ...fontDisplay, color: COLORS.text }}
-          className="text-4xl md:text-5xl font-bold leading-[1.15] mb-6"
-        >
+        <h1 style={{ ...fontDisplay, color: COLORS.text }} className="text-4xl md:text-5xl font-bold leading-[1.15] mb-6">
           Résolvons ensemble un{" "}
-          <span
-            style={{ background: GRADIENT_TEXT, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}
-          >
+          <span style={{ background: GRADIENT_TEXT, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
             vrai cas Excel &amp; Power BI
           </span>{" "}
           en 45 minutes
@@ -233,12 +223,9 @@ export default function App() {
       </section>
 
       <section className="max-w-3xl mx-auto px-6 pb-12">
-        <div
-          className="rounded-2xl p-5 flex items-center gap-4"
-          style={{ background: COLORS.surface, border: `1px solid ${COLORS.border}` }}
-        >
-          <Sparkles size={18} color={COLORS.cyan} className="flex-shrink-0" />
-          <p style={{ color: COLORS.muted }} className="text-sm">
+        <div style={{ background: COLORS.surface, border: `1px solid ${COLORS.border}`, borderRadius: "12px", padding: "20px", display: "flex", alignItems: "center", gap: "16px" }}>
+          <Sparkles size={18} color={COLORS.cyan} style={{ flexShrink: 0 }} />
+          <p style={{ color: COLORS.muted, margin: 0, fontSize: "14px" }}>
             100% gratuit, places limitées pour garder un vrai échange en direct.
           </p>
         </div>
@@ -249,18 +236,18 @@ export default function App() {
         <h2 style={{ ...fontDisplay, color: COLORS.text }} className="text-2xl md:text-3xl font-semibold mb-8">
           Un cas réel, résolu du début à la fin
         </h2>
-        <div className="space-y-4">
+        <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "16px" }}>
           {[
             { step: "01", title: "Consolidation multi-années", desc: "On part de plusieurs dossiers et on les assemble dans un seul modèle propre et exploitable." },
             { step: "02", title: "Évolution d'un indicateur clé", desc: "On construit le dashboard qui suit l'évolution du CA et des charges, ou des effectifs et du turnover." },
             { step: "03", title: "Un classement qui devient un outil de décision", desc: "En quelques clics : le top 10 de vos meilleurs commerciaux pour prioriser vos actions commerciales, ou les services où le turnover s'envole pour agir avant que ça coûte cher en recrutement." },
             { step: "04", title: "Analyses comparatives automatisées", desc: "On automatise le N vs N-1 et le budget vs réalisé, avec les écarts calculés en direct, sur le CA et les charges, ou sur la masse salariale et les effectifs." },
-          ].map((s, i) => (
-            <div key={i} className="flex items-start gap-4 rounded-2xl p-5" style={{ background: COLORS.surface, border: `1px solid ${COLORS.border}` }}>
-              <span style={{ ...fontMono, color: COLORS.cyan, fontSize: "13px" }} className="flex-shrink-0 mt-0.5">{s.step}</span>
+          ].map((s) => (
+            <div key={s.step} style={{ background: COLORS.surface, border: `1px solid ${COLORS.border}`, borderRadius: "12px", padding: "20px", display: "flex", gap: "16px" }}>
+              <span style={{ ...fontMono, color: COLORS.cyan, fontSize: "13px", flexShrink: 0, marginTop: "4px" }}>{s.step}</span>
               <div>
-                <div style={{ ...fontDisplay, color: COLORS.text }} className="font-semibold text-sm mb-1">{s.title}</div>
-                <p style={{ color: COLORS.muted }} className="text-sm leading-relaxed">{s.desc}</p>
+                <div style={{ ...fontDisplay, color: COLORS.text, fontWeight: 600, marginBottom: "8px", fontSize: "14px" }}>{s.title}</div>
+                <p style={{ color: COLORS.muted, margin: 0, fontSize: "14px", lineHeight: 1.6 }}>{s.desc}</p>
               </div>
             </div>
           ))}
@@ -272,51 +259,31 @@ export default function App() {
         <h2 style={{ ...fontDisplay, color: COLORS.text }} className="text-2xl md:text-3xl font-semibold mb-8">
           Ce que vous saurez faire en sortant du live
         </h2>
-        <div className="space-y-4">
+        <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "16px" }}>
           {acquis.map((a, i) => (
-            <div key={i} className="flex items-start gap-3">
-              <CheckCircle2 size={18} color={COLORS.green} className="mt-0.5 flex-shrink-0" />
-              <span style={{ color: COLORS.text }} className="text-sm leading-relaxed">{a}</span>
+            <div key={i} style={{ display: "flex", gap: "12px" }}>
+              <CheckCircle2 size={18} color={COLORS.green} style={{ flexShrink: 0, marginTop: "2px" }} />
+              <span style={{ color: COLORS.text, fontSize: "14px", lineHeight: 1.6 }}>{a}</span>
             </div>
           ))}
         </div>
       </section>
 
       <section className="max-w-3xl mx-auto px-6 py-12">
-        <div
-          className="rounded-3xl p-8 flex flex-col sm:flex-row gap-6 items-start"
-          style={{ background: `linear-gradient(135deg, ${COLORS.surface} 0%, ${COLORS.surface2} 100%)`, border: `1px solid ${COLORS.borderLight}` }}
-        >
+        <div style={{ background: `linear-gradient(135deg, ${COLORS.surface} 0%, ${COLORS.surface2} 100%)`, border: `1px solid ${COLORS.borderLight}`, borderRadius: "24px", padding: "32px", display: "flex", gap: "24px", alignItems: "flex-start" }}>
           {photoError ? (
-            <div
-              className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0"
-              style={{ ...fontDisplay, background: GRADIENT, color: "#0A0D16", fontSize: "18px", fontWeight: 700 }}
-            >
+            <div style={{ ...fontDisplay, width: "64px", height: "64px", borderRadius: "16px", background: GRADIENT, color: "#0A0D16", fontSize: "18px", fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
               DT
             </div>
           ) : (
-            <img
-              src="/formateur.jpg"
-              alt="Dimitri Takou"
-              onError={() => setPhotoError(true)}
-              className="w-16 h-16 rounded-2xl object-cover flex-shrink-0"
-              style={{ border: `1px solid ${COLORS.borderLight}` }}
-            />
+            <img src="/formateur.jpg" alt="Dimitri Takou" onError={() => setPhotoError(true)} style={{ width: "64px", height: "64px", borderRadius: "16px", objectFit: "cover", flexShrink: 0, border: `1px solid ${COLORS.borderLight}` }} />
           )}
           <div>
-            <div style={{ ...fontDisplay, color: COLORS.text }} className="font-semibold mb-1">Dimitri Takou</div>
-            <p style={{ color: COLORS.muted }} className="text-sm leading-relaxed mb-3">
-              Responsable Administratif &amp; Financier avec 7 ans d'expérience professionnelle en France chez
-              AXA, Mazars et Valophis. Je conçois des tableaux de bord décisionnels sous Excel BI / Power BI
-              pour accompagner la prise de décision.
+            <div style={{ ...fontDisplay, color: COLORS.text, fontWeight: 600, marginBottom: "8px" }}>Dimitri Takou</div>
+            <p style={{ color: COLORS.muted, fontSize: "14px", lineHeight: 1.6, marginBottom: "12px", margin: 0 }}>
+              Responsable Administratif &amp; Financier avec 7 ans d'expérience professionnelle en France chez AXA, Mazars et Valophis. Je conçois des tableaux de bord décisionnels sous Excel BI / Power BI pour accompagner la prise de décision.
             </p>
-            
-              href="https://www.linkedin.com/in/dimitri-takou-091111197"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-full"
-              style={{ color: COLORS.cyan, background: "rgba(74,222,128,0.08)", border: "1px solid rgba(74,222,128,0.25)", textDecoration: "none" }}
-            >
+            <a href="https://www.linkedin.com/in/dimitri-takou-091111197" target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "6px", fontSize: "12px", padding: "6px 12px", borderRadius: "20px", color: COLORS.cyan, background: "rgba(74,222,128,0.08)", border: `1px solid rgba(74,222,128,0.25)`, textDecoration: "none" }}>
               <Linkedin size={13} /> Voir mon profil LinkedIn
             </a>
           </div>
@@ -324,67 +291,67 @@ export default function App() {
       </section>
 
       <section id="inscription" className="max-w-2xl mx-auto px-6 py-12">
-        <div className="text-center mb-8">
+        <div style={{ textAlign: "center", marginBottom: "32px" }}>
           <CellTag>RÉSERVATION</CellTag>
           <h2 style={{ ...fontDisplay, color: COLORS.text }} className="text-2xl md:text-3xl font-semibold">
             Réservez votre place
           </h2>
-          <p style={{ color: COLORS.muted }} className="text-sm mt-3">
+          <p style={{ color: COLORS.muted, fontSize: "14px", marginTop: "12px", margin: 0 }}>
             Le lien de connexion Google Meet vous sera envoyé par e-mail avant l'événement.
           </p>
-          <p style={{ ...fontMono, color: COLORS.green }} className="text-xs mt-2">
+          <p style={{ ...fontMono, color: COLORS.green, fontSize: "12px", marginTop: "8px", margin: 0 }}>
             ▶ Replay disponible si vous ne pouvez pas être présent en direct
           </p>
         </div>
 
-        <div className="rounded-2xl p-6 md:p-8 space-y-5" style={{ background: COLORS.surface, border: `1px solid ${COLORS.border}` }}>
-            <div className="grid sm:grid-cols-2 gap-5">
-              <Field label="Prénom *">
-                <input value={form.prenom} onChange={update("prenom")} placeholder="Jean" style={inputStyle} />
-              </Field>
-              <Field label="Nom *">
-                <input value={form.nom} onChange={update("nom")} placeholder="Dupont" style={inputStyle} />
-              </Field>
-            </div>
-            <div className="grid sm:grid-cols-2 gap-5">
-              <Field label="Ville *">
-                <input value={form.ville} onChange={update("ville")} placeholder="Paris" style={inputStyle} />
-              </Field>
-              <Field label="Téléphone *">
-                <input value={form.telephone} onChange={update("telephone")} placeholder="06 12 34 56 78" style={inputStyle} />
-              </Field>
-            </div>
-            <Field label="Adresse e-mail *">
-              <input value={form.email} onChange={update("email")} placeholder="jean.dupont@email.com" type="email" style={inputStyle} />
+        <div style={{ background: COLORS.surface, border: `1px solid ${COLORS.border}`, borderRadius: "12px", padding: "32px", display: "grid", gridTemplateColumns: "1fr", gap: "20px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "20px" }}>
+            <Field label="Prénom *">
+              <input value={form.prenom} onChange={update("prenom")} placeholder="Jean" style={inputStyle} />
             </Field>
-            <Field label="Secteur d'activité / Fonction *">
-              <select value={form.secteur} onChange={update("secteur")} style={inputStyle}>
-                <option value="">Sélectionner…</option>
-                <option value="Comptabilité">Comptabilité</option>
-                <option value="Contrôle de gestion / Finance">Contrôle de gestion / Finance</option>
-                <option value="Ressources Humaines">Ressources Humaines</option>
-                <option value="Logistique">Logistique</option>
-                <option value="Audit">Audit</option>
-                <option value="Étudiant / Alternant">Étudiant / Alternant</option>
-                <option value="En recherche d'emploi">En recherche d'emploi</option>
-                <option value="Autre">Autre</option>
-              </select>
+            <Field label="Nom *">
+              <input value={form.nom} onChange={update("nom")} placeholder="Dupont" style={inputStyle} />
             </Field>
-
-            <PrimaryButton onClick={handleSubmit} full disabled={submitting}>
-              {submitting ? "Envoi en cours…" : <>Réserver ma place gratuite <Send size={16} /></>}
-            </PrimaryButton>
-            {missingFields && (
-              <p style={{ color: "#F87171" }} className="text-xs text-center">
-                Merci de remplir tous les champs avant de valider votre inscription.
-              </p>
-            )}
-            {submitError && (
-              <p style={{ color: "#F87171" }} className="text-xs text-center">
-                Une erreur est survenue, réessayez ou écrivez-moi directement par e-mail.
-              </p>
-            )}
           </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "20px" }}>
+            <Field label="Ville *">
+              <input value={form.ville} onChange={update("ville")} placeholder="Paris" style={inputStyle} />
+            </Field>
+            <Field label="Téléphone *">
+              <input value={form.telephone} onChange={update("telephone")} placeholder="06 12 34 56 78" style={inputStyle} />
+            </Field>
+          </div>
+          <Field label="Adresse e-mail *">
+            <input value={form.email} onChange={update("email")} placeholder="jean.dupont@email.com" type="email" style={inputStyle} />
+          </Field>
+          <Field label="Secteur d'activité / Fonction *">
+            <select value={form.secteur} onChange={update("secteur")} style={inputStyle}>
+              <option value="">Sélectionner…</option>
+              <option value="Comptabilité">Comptabilité</option>
+              <option value="Contrôle de gestion / Finance">Contrôle de gestion / Finance</option>
+              <option value="Ressources Humaines">Ressources Humaines</option>
+              <option value="Logistique">Logistique</option>
+              <option value="Audit">Audit</option>
+              <option value="Étudiant / Alternant">Étudiant / Alternant</option>
+              <option value="En recherche d'emploi">En recherche d'emploi</option>
+              <option value="Autre">Autre</option>
+            </select>
+          </Field>
+
+          <PrimaryButton onClick={handleSubmit} full disabled={submitting}>
+            {submitting ? "Envoi en cours…" : <>Réserver ma place gratuite <Send size={16} /></>}
+          </PrimaryButton>
+          {missingFields && (
+            <p style={{ color: "#F87171", fontSize: "12px", textAlign: "center", margin: 0 }}>
+              Merci de remplir tous les champs avant de valider votre inscription.
+            </p>
+          )}
+          {submitError && (
+            <p style={{ color: "#F87171", fontSize: "12px", textAlign: "center", margin: 0 }}>
+              Une erreur est survenue, réessayez ou écrivez-moi directement par e-mail.
+            </p>
+          )}
+        </div>
       </section>
 
       <section className="max-w-3xl mx-auto px-6 py-12">
@@ -392,23 +359,23 @@ export default function App() {
         <h2 style={{ ...fontDisplay, color: COLORS.text }} className="text-2xl md:text-3xl font-semibold mb-8">
           Avant de vous inscrire
         </h2>
-        <div className="space-y-4">
+        <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "16px" }}>
           {[
             { q: "Faut-il un niveau particulier sur Excel ?", a: "Non, le webinaire est conçu pour être suivi par des profils débutants à intermédiaires en contrôle de gestion, comptabilité, RH, logistique ou finance." },
             { q: "Dois-je installer un logiciel ?", a: "Non, la session se déroule via un lien Google Meet classique — cliquez et vous êtes connecté, sans compte Google ni installation." },
             { q: "Que se passe-t-il si je ne suis pas disponible le 16 août à 20h ?", a: "Inscrivez-vous quand même : le replay vous sera envoyé automatiquement par e-mail après l'événement." },
             { q: "Mes données seront-elles utilisées ailleurs ?", a: "Non, vous recevrez uniquement les e-mails liés à ce webinaire (confirmation, rappel, replay, offre de suite)." },
           ].map((f, i) => (
-            <div key={i} className="rounded-xl p-5" style={{ background: COLORS.surface, border: `1px solid ${COLORS.border}` }}>
-              <div style={{ ...fontDisplay, color: COLORS.text }} className="text-sm font-medium mb-2">{f.q}</div>
-              <p style={{ color: COLORS.muted }} className="text-sm leading-relaxed">{f.a}</p>
+            <div key={i} style={{ background: COLORS.surface, border: `1px solid ${COLORS.border}`, borderRadius: "12px", padding: "20px" }}>
+              <div style={{ ...fontDisplay, color: COLORS.text, fontSize: "14px", fontWeight: 500, marginBottom: "8px" }}>{f.q}</div>
+              <p style={{ color: COLORS.muted, fontSize: "14px", lineHeight: 1.6, margin: 0 }}>{f.a}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <footer className="max-w-3xl mx-auto px-6 py-10 text-center" style={{ borderTop: `1px solid ${COLORS.border}` }}>
-        <span style={{ color: COLORS.mutedDark }} className="text-sm">© 2026 Dimitri Takou — Webinaire gratuit Excel &amp; Power BI</span>
+      <footer style={{ borderTop: `1px solid ${COLORS.border}`, padding: "40px 20px 40px", textAlign: "center" }} className="max-w-3xl mx-auto px-6">
+        <span style={{ color: COLORS.mutedDark, fontSize: "14px" }}>© 2026 Dimitri Takou — Webinaire gratuit Excel &amp; Power BI</span>
       </footer>
     </div>
   );
