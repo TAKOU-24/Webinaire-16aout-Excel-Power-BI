@@ -5,20 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription confirmée</title>
     <style>
-        body { background: #0A0D16; color: #F1F3F9; font-family: 'Inter', sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; }
-        .container { text-align: center; max-width: 500px; padding: 40px; }
+        body { background: #0A0D16; color: #F1F3F9; font-family: 'Inter', sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; padding: 20px; }
+        .container { text-align: center; max-width: 500px; }
         .checkmark { width: 80px; height: 80px; margin: 0 auto 30px; background: #3DDC97; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #0A0D16; font-size: 50px; }
         h1 { font-size: 28px; margin: 20px 0; }
-        p { font-size: 16px; color: #8B93AC; line-height: 1.6; }
-        .button { background: linear-gradient(135deg, #15803D 0%, #22C55E 100%); color: #0A0D16; padding: 12px 30px; border-radius: 8px; text-decoration: none; display: inline-block; margin-top: 30px; font-weight: 600; }
+        p { font-size: 16px; color: #8B93AC; line-height: 1.6; margin: 15px 0; }
+        .buttons { display: flex; flex-direction: column; gap: 12px; margin-top: 30px; }
+        .button { padding: 12px 30px; border-radius: 8px; text-decoration: none; display: inline-block; font-weight: 600; font-size: 16px; transition: transform 0.2s; }
+        .button:hover { transform: scale(1.05); }
+        .primary { background: linear-gradient(135deg, #15803D 0%, #22C55E 100%); color: #0A0D16; }
+        .whatsapp { background: #25D366; color: white; }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="checkmark">✓</div>
         <h1>Inscription confirmée !</h1>
-        <p>Merci pour votre inscription. Le lien Google Meet vous sera envoyé par e-mail avant l'événement.</p>
-        <a href="/" class="button">Retour à l'accueil</a>
+        <p>Merci pour votre inscription.</p>
+        <p>Le lien Google Meet vous sera envoyé par e-mail avant l'événement.</p>
+        
+        <div class="buttons">
+            <a href="https://chat.whatsapp.com/G5qrRv6lHz335EZplkksgj?s=cl&p=a&ilr=4" class="button whatsapp" target="_blank">
+                📲 Rejoindre le groupe WhatsApp
+            </a>
+            <a href="/" class="button primary">Retour à l'accueil</a>
+        </div>
     </div>
 </body>
 </html>
