@@ -195,7 +195,7 @@ export default function App() {
         <h1 style={{ ...fontDisplay, color: COLORS.text }} className="text-4xl md:text-5xl font-bold leading-[1.15] mb-6">
           Résolvons ensemble un{" "}
           <span style={{ background: GRADIENT_TEXT, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-            vrai cas Excel &amp; Power BI
+            vrai cas pratique
           </span>{" "}
           en 45 minutes
         </h1>
